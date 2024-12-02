@@ -1,0 +1,31 @@
+<!-- templates/pdf_generator/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wyoming LLC PDF Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <span class="font-semibold text-gray-500 text-lg">Wyoming LLC PDF Generator</span>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <a href="{% url 'template_list' %}" class="py-4 px-2 text-gray-500 hover:text-gray-900">Templates</a>
+                        <a href="{% url 'upload_template' %}" class="py-4 px-2 text-gray-500 hover:text-gray-900">Upload Template</a>
+                        <a href="{% url 'generated_pdf_list' %}" class="py-4 px-2 text-gray-500 hover:text-gray-900">Generated PDFs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

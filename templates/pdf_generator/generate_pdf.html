@@ -1,0 +1,20 @@
+<!-- templates/pdf_generator/generate_pdf.html -->
+{% extends 'pdf_generator/base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
+    <h2 class="text-2xl font-bold mb-4">Generate PDF from {{ template.name }}</h2>
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.csv_file.id_for_label }}">
+                Upload CSV File
+            </label>
+            {{ form.csv_file }}
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Generate PDF
+        </button>
+    </form>
+</div>
+{% endblock %}

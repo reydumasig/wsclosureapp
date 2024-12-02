@@ -1,0 +1,26 @@
+<!-- templates/pdf_generator/upload_template.html -->
+{% extends 'pdf_generator/base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
+    <h2 class="text-2xl font-bold mb-4">Upload PDF Template</h2>
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.name.id_for_label }}">
+                Template Name
+            </label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.template_file.id_for_label }}">
+                PDF Template
+            </label>
+            {{ form.template_file }}
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Upload Template
+        </button>
+    </form>
+</div>
+{% endblock %}
